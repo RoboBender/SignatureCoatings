@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signature Coatings | Professional Epoxy Floors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0b0b0b;
+  --dark: #141414;
+  --concrete: #1e1e1e;
+  --mid: #2c2c2c;
+  --steel: #4a4a4a;
+  --muted: #8a8a8a;
+  --light: #c8c8c0;
+  --white: #f0ede8;
+  --orange: #f04e0a;
+  --orange-dim: rgba(240,78,10,0.12);
+  --orange-glow: rgba(240,78,10,0.06);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: crosshair;
+}
+
+/* Concrete texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  transition: background 0.3s, border-bottom 0.3s;
+}
+nav.scrolled {
+  background: rgba(11,11,11,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--mid);
+}
+
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.nav-logo-icon {
+  display: inline-block;
+  width: 8px;
+  height: 22px;
+  background: var(--orange);
+  margin-right: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--orange);
+  color: var(--black);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Simulated epoxy floor background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      105deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.012) 2px,
+      rgba(255,255,255,0.012) 3px
+    ),
+    radial-gradient(ellipse 120% 80% at 70% 40%, #1a1008 0%, var(--black) 65%);
+  z-index: 0;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 60% 30%, rgba(240,78,10,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 40% at 80% 70%, rgba(240,78,10,0.05) 0%, transparent 50%);
+}
+
+/* Diagonal slash across hero */
+.hero-slash {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 55%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent 5%, var(--orange) 30%, var(--orange) 70%, transparent 95%);
+  transform: rotate(-8deg) translateX(-50%);
+  opacity: 0.35;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 10rem 3rem 5rem;
+  max-width: 1200px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--orange-dim);
+  border: 1px solid rgba(240,78,10,0.3);
+  padding: 0.4rem 1rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.6s 0.1s ease forwards;
+}
+.hero-tag span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.hero-tag-dot {
+  width: 6px; height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(4rem, 10vw, 9.5rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  max-width: 900px;
+  opacity: 0;
+  animation: slideUp 0.7s 0.2s ease forwards;
+}
+h1 .accent { color: var(--orange); }
+h1 .outline {
+  -webkit-text-stroke: 2px var(--white);
+  color: transparent;
+}
+
+.hero-sub {
+  margin-top: 2rem;
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 460px;
+  line-height: 1.75;
+  opacity: 0;
+  animation: fadeIn 0.7s 0.45s ease forwards;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2.5rem;
+  opacity: 0;
+  animation: fadeIn 0.7s 0.6s ease forwards;
+}
+
+.btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--orange);
+  color: var(--black);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  text-decoration: none;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: opacity 0.2s;
+}
+.btn-main:hover { opacity: 0.85; }
+.btn-main .arrow { font-size: 1.1rem; transition: transform 0.2s; }
+.btn-main:hover .arrow { transform: translateX(4px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.8rem;
+  border: 1px solid var(--steel);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.btn-outline:hover { border-color: var(--white); }
+
+/* Stats bar */
+.stats-bar {
+  display: flex;
+  border-top: 1px solid var(--mid);
+  margin-top: 4rem;
+  opacity: 0;
+  animation: fadeIn 0.7s 0.75s ease forwards;
+}
+.stat-item {
+  flex: 1;
+  padding: 2rem 3rem 2rem 0;
+  border-right: 1px solid var(--mid);
+}
+.stat-item:last-child { border-right: none; padding-left: 3rem; }
+.stat-item:first-child { padding-left: 0; }
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+.stat-num span { color: var(--orange); }
+.stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+
+/* SECTION SHARED */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 18px;
+  background: var(--orange);
+}
+.section-eyebrow span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  color: var(--white);
+}
+h2 .outline {
+  -webkit-text-stroke: 1.5px var(--white);
+  color: transparent;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+/* SERVICES */
+#services {
+  padding: 7rem 0;
+  background: var(--dark);
+  border-top: 3px solid var(--orange);
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+  gap: 2rem;
+}
+.services-header p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 320px;
+  line-height: 1.75;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--concrete);
+  padding: 0;
+  cursor: pointer;
+  group: true;
+}
+.service-thumb {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Epoxy-style floor swatches via CSS */
+.swatch-garage {
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 20px),
+    linear-gradient(135deg, #1a1f2e 0%, #252b3d 40%, #1e2333 60%, #161a26 100%);
+}
+.swatch-commercial {
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 30px),
+    linear-gradient(160deg, #1a1a1a 0%, #2d2d2d 30%, #1f1e1c 60%, #111 100%);
+}
+.swatch-metallic {
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 15px),
+    linear-gradient(120deg, #1c1a10 0%, #2a2518 30%, #1f1c10 55%, #151310 100%);
+}
+.swatch-flake {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(200,180,140,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(180,160,100,0.06) 0%, transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(220,200,150,0.05) 0%, transparent 30%),
+    linear-gradient(150deg, #1a1714 0%, #252018 50%, #1a1713 100%);
+}
+.swatch-basement {
+  background:
+    repeating-linear-gradient(60deg, rgba(240,78,10,0.04) 0px, rgba(240,78,10,0.04) 1px, transparent 1px, transparent 25px),
+    linear-gradient(120deg, #1a1008 0%, #261408 30%, #1a1008 60%, #0f0904 100%);
+}
+.swatch-industrial {
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 40px),
+    linear-gradient(180deg, #1e1e1e 0%, #282828 50%, #1a1a1a 100%);
+}
+
+.service-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11,11,11,0.8) 0%, transparent 60%);
+}
+
+.service-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 2;
+  padding: 1.5rem;
+}
+.service-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: var(--orange-dim);
+  border: 1px solid rgba(240,78,10,0.25);
+  padding: 0.25rem 0.6rem;
+  margin-bottom: 0.5rem;
+}
+.service-thumb-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+.service-body {
+  padding: 1.5rem;
+  border-top: 1px solid var(--mid);
+}
+.service-body p {
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+.service-link:hover { gap: 0.7rem; }
+
+/* hover lift on cards */
+.service-card {
+  transition: transform 0.25s;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  z-index: 1;
+}
+
+/* PRICING */
+#pricing {
+  padding: 7rem 0;
+  background: var(--black);
+  border-top: 1px solid var(--mid);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Large background text */
+#pricing::before {
+  content: 'PRICING';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 22vw;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.018);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.pricing-header .section-eyebrow { justify-content: center; }
+.pricing-header p {
+  color: var(--muted);
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--mid);
+}
+
+.pricing-card {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid var(--mid);
+  position: relative;
+  transition: background 0.25s;
+}
+.pricing-card:last-child { border-right: none; }
+.pricing-card:hover { background: var(--concrete); }
+.pricing-card.featured {
+  background: var(--concrete);
+  border-top: 3px solid var(--orange);
+  margin-top: -3px;
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 0; right: 2.5rem;
+  background: var(--orange);
+  color: var(--black);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  transform: translateY(-100%);
+  margin-top: -1px;
+}
+.pricing-card.featured .pricing-badge { display: block; }
+.pricing-badge { display: none; }
+
+.pricing-tier {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.pricing-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+.pricing-price sup {
+  font-size: 1.8rem;
+  vertical-align: super;
+  color: var(--orange);
+}
+.pricing-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0.5rem 0 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--mid);
+}
+.pricing-features {
+  list-style: none;
+  margin-bottom: 2.5rem;
+}
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--light);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.pricing-features li:last-child { border-bottom: none; }
+.pricing-features li::before {
+  content: '✓';
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.btn-pricing {
+  width: 100%;
+  padding: 0.9rem;
+  background: transparent;
+  border: 1px solid var(--steel);
+  color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.btn-pricing:hover { border-color: var(--orange); background: var(--orange-dim); }
+.pricing-card.featured .btn-pricing {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--black);
+  font-weight: 800;
+}
+.pricing-card.featured .btn-pricing:hover { opacity: 0.85; }
+
+/* CONTACT */
+#contact {
+  padding: 7rem 0;
+  background: var(--dark);
+  border-top: 3px solid var(--orange);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+}
+
+.contact-left h2 { margin-bottom: 1.5rem; }
+.contact-left p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  max-width: 340px;
+}
+
+.contact-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--mid);
+  background: var(--concrete);
+}
+.badge-icon {
+  width: 36px; height: 36px;
+  background: var(--orange-dim);
+  border: 1px solid rgba(240,78,10,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+}
+.badge-text strong {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.badge-text span {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form-group label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: var(--concrete);
+  border: 1px solid var(--mid);
+  border-bottom: 2px solid var(--mid);
+  color: var(--white);
+  padding: 0.75rem 1rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  resize: none;
+}
+.form-group select option { background: var(--concrete); }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--steel); }
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { border-bottom-color: var(--orange); }
+.form-group textarea { height: 110px; }
+
+.form-disclaimer {
+  font-size: 0.75rem;
+  color: var(--steel);
+  line-height: 1.6;
+}
+
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--orange);
+  color: var(--black);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+.btn-submit:hover { opacity: 0.85; }
+.btn-submit .arrow { transition: transform 0.2s; }
+.btn-submit:hover .arrow { transform: translateX(4px); }
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  border-top: 1px solid var(--mid);
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.footer-logo-icon {
+  display: inline-block;
+  width: 5px; height: 15px;
+  background: var(--orange);
+  opacity: 0.6;
+}
+footer p {
+  font-size: 0.75rem;
+  color: var(--steel);
+  letter-spacing: 0.04em;
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a {
+  font-size: 0.72rem;
+  color: var(--steel);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--muted); }
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: none; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+.reveal-d5 { transition-delay: 0.5s; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero-content { padding: 8rem 1.5rem 3rem; }
+  .container { padding: 0 1.5rem; }
+  .stats-bar { flex-wrap: wrap; }
+  .stat-item { flex: 1 1 40%; border-right: none; border-bottom: 1px solid var(--mid); padding: 1.5rem; }
+  .stat-item:last-child { border-bottom: none; }
+  .services-header { flex-direction: column; align-items: flex-start; }
+  .services-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; border: none; gap: 2px; }
+  .pricing-card { border-right: none; border: 1px solid var(--mid); }
+  .pricing-card.featured { margin-top: 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-icon"></span>Signature Coatings
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Get a Quote</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Free Quote →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-slash"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      <span>Licensed &amp; Insured · Serving the Greater Ontario Area</span>
+    </div>
+    <h1>
+      Durable Floors,<br><span class="accent">Lasting</span><br><span class="outline">Impressions.</span>
+    </h1>
+    <p class="hero-sub">Premium epoxy floor coatings for homes and businesses across Ontario. Beautiful, tough, and built to last a lifetime.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-main">Get a Free Quote <span class="arrow">→</span></a>
+      <a href="#services" class="btn-outline">Our Work</a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num">850<span>+</span></div>
+        <div class="stat-label">Floors Installed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">12<span>yr</span></div>
+        <div class="stat-label">In Business</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5<span>★</span></div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">15<span>yr</span></div>
+        <div class="stat-label">Warranty on Work</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="reveal">
+        <div class="section-eyebrow"><span>What We Do</span></div>
+        <h2>Every Floor.<br><span class="outline">Every Job.</span></h2>
+      </div>
+      <p class="reveal reveal-d1">From residential garage makeovers to large-scale industrial installations, we deliver a finish that performs as hard as it looks.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-thumb swatch-garage">
+          <div class="service-overlay">
+            <div class="service-tag">Residential</div>
+            <div class="service-thumb-title">Garage Floor<br>Coatings</div>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Transform your garage into a showroom-quality space. Chemical resistant, easy to clean, and built to handle vehicle traffic for decades.</p>
+          <a href="#contact" class="service-link">Get a Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-d1">
+        <div class="service-thumb swatch-commercial">
+          <div class="service-overlay">
+            <div class="service-tag">Commercial</div>
+            <div class="service-thumb-title">Commercial<br>Flooring</div>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Warehouses, showrooms, retail spaces. High-traffic epoxy systems engineered to stand up to forklifts, heavy machinery, and constant foot traffic.</p>
+          <a href="#contact" class="service-link">Get a Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-d2">
+        <div class="service-thumb swatch-metallic">
+          <div class="service-overlay">
+            <div class="service-tag">Decorative</div>
+            <div class="service-thumb-title">Metallic<br>Epoxy</div>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Stunning three-dimensional metallic finishes. No two floors are ever the same — a truly custom result for high-end residential and commercial spaces.</p>
+          <a href="#contact" class="service-link">Get a Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-d1">
+        <div class="service-thumb swatch-flake">
+          <div class="service-overlay">
+            <div class="service-tag">Residential</div>
+            <div class="service-thumb-title">Full Broadcast<br>Flake System</div>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Our most popular residential system. Vinyl flake broadcast over a base coat provides excellent slip resistance and hides surface imperfections beautifully.</p>
+          <a href="#contact" class="service-link">Get a Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-d2">
+        <div class="service-thumb swatch-basement">
+          <div class="service-overlay">
+            <div class="service-tag">Residential</div>
+            <div class="service-thumb-title">Basement<br>Coatings</div>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Moisture-tolerant epoxy systems designed specifically for below-grade concrete. Moisture barriers and diamond grinding prep included in every job.</p>
+          <a href="#contact" class="service-link">Get a Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-d3">
+        <div class="service-thumb swatch-industrial">
+          <div class="service-overlay">
+            <div class="service-tag">Commercial</div>
+            <div class="service-thumb-title">Industrial<br>Floor Systems</div>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>USDA-compliant, chemical resistant polyurea and polyaspartic systems for food service, manufacturing, and pharmaceutical environments.</p>
+          <a href="#contact" class="service-link">Get a Quote →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-header reveal">
+      <div class="section-eyebrow"><span>Transparent Pricing</span></div>
+      <h2>No Surprises.<br><span class="outline">Just Results.</span></h2>
+      <p>Square footage pricing, all-in. No hidden prep charges, no surprise add-ons.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Basic System</div>
+        <div class="pricing-price"><sup>$</sup>3</div>
+        <div class="pricing-note">per sq ft · single-car garage from $900</div>
+        <ul class="pricing-features">
+          <li>Diamond grind surface prep</li>
+          <li>1-coat epoxy base layer</li>
+          <li>Single colour solid finish</li>
+          <li>UV-stable topcoat sealer</li>
+          <li>5-year workmanship warranty</li>
+        </ul>
+        <button class="btn-pricing" onclick="scrollToContact()">Get This Quote</button>
+      </div>
+
+      <div class="pricing-card featured reveal reveal-d1">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-tier">Flake System</div>
+        <div class="pricing-price"><sup>$</sup>5</div>
+        <div class="pricing-note">per sq ft · single-car garage from $1,500</div>
+        <ul class="pricing-features">
+          <li>Diamond grind + moisture test</li>
+          <li>Epoxy primer coat</li>
+          <li>Full broadcast vinyl flake</li>
+          <li>Double polyurea topcoat</li>
+          <li>Anti-slip aggregate option</li>
+          <li>10-year workmanship warranty</li>
+        </ul>
+        <button class="btn-pricing" onclick="scrollToContact()">Get This Quote</button>
+      </div>
+
+      <div class="pricing-card reveal reveal-d2">
+        <div class="pricing-tier">Metallic / Custom</div>
+        <div class="pricing-price">Custom</div>
+        <div class="pricing-note">quoted on-site · starting from $8/sq ft</div>
+        <ul class="pricing-features">
+          <li>Full surface evaluation</li>
+          <li>Custom metallic pigment mix</li>
+          <li>Multi-layer epoxy build</li>
+          <li>High-gloss polyaspartic finish</li>
+          <li>Colour matching available</li>
+          <li>15-year workmanship warranty</li>
+        </ul>
+        <button class="btn-pricing" onclick="scrollToContact()">Request On-Site Quote</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-eyebrow"><span>Free Estimate</span></div>
+        <h2>Get Your<br><span class="accent">Free Quote.</span></h2>
+        <p>Fill out the form and we'll get back to you within one business day with a no-obligation quote for your project.</p>
+
+        <div class="contact-badges">
+          <div class="contact-badge">
+            <div class="badge-icon">📞</div>
+            <div class="badge-text">
+              <strong>Call Us Direct</strong>
+              <span>(555) 000-0000</span>
+            </div>
+          </div>
+          <div class="contact-badge">
+            <div class="badge-icon">📍</div>
+            <div class="badge-text">
+              <strong>Service Area</strong>
+              <span>Metro area + 60km radius</span>
+            </div>
+          </div>
+          <div class="contact-badge">
+            <div class="badge-icon">⚡</div>
+            <div class="badge-text">
+              <strong>Fast Turnaround</strong>
+              <span>Most installs complete in 1–2 days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal reveal-d1" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Mike">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Johnson">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="(555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="mike@email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Project Type</label>
+            <select>
+              <option value="" disabled selected>Select type</option>
+              <option>Residential Garage</option>
+              <option>Basement</option>
+              <option>Commercial / Warehouse</option>
+              <option>Metallic / Decorative</option>
+              <option>Industrial</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Approx. Square Footage</label>
+            <select>
+              <option value="" disabled selected>Select size</option>
+              <option>Under 500 sq ft</option>
+              <option>500 – 1,000 sq ft</option>
+              <option>1,000 – 2,500 sq ft</option>
+              <option>2,500 – 5,000 sq ft</option>
+              <option>Over 5,000 sq ft</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tell Us About Your Project</label>
+          <textarea placeholder="What's the current floor condition? Any cracks, oil stains, moisture issues? What's the timeline?"></textarea>
+        </div>
+        <p class="form-disclaimer">We respect your privacy. Your info is never sold or shared. We'll only use it to follow up on your quote request.</p>
+        <button type="submit" class="btn-submit" id="submit-btn">
+          Request My Free Quote <span class="arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <span class="footer-logo-icon"></span>Signature Coatings
+  </div>
+  <p>© 2025 Signature Coatings Coatings. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  function scrollToContact() {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    btn.innerHTML = 'Quote Request Sent ✓';
+    btn.style.background = '#2a7a4a';
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
