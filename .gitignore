@@ -1,4 +1,3 @@
 scvenv
-.gitignore
 __pycache__/
 *.pyc
