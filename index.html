@@ -33,7 +33,6 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  cursor: crosshair;
 }
 
 /* Concrete texture overlay */
@@ -874,9 +873,8 @@ footer p {
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#contact">Get a Quote</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Free Quote →</a>
+  <a href="#pricing" class="nav-cta">View Pricing →</a>
 </nav>
 
 <!-- HERO -->
@@ -893,26 +891,8 @@ footer p {
     </h1>
     <p class="hero-sub">Premium epoxy floor coatings for homes and businesses across Ontario. Beautiful, tough, and built to last a lifetime.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-main">Get a Free Quote <span class="arrow">→</span></a>
+      <a href="#pricing" class="btn-main">View Pricing <span class="arrow">→</span></a>
       <a href="#services" class="btn-outline">Our Work</a>
-    </div>
-    <div class="stats-bar">
-      <div class="stat-item">
-        <div class="stat-num">850<span>+</span></div>
-        <div class="stat-label">Floors Installed</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">12<span>yr</span></div>
-        <div class="stat-label">In Business</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">5<span>★</span></div>
-        <div class="stat-label">Average Rating</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">15<span>yr</span></div>
-        <div class="stat-label">Warranty on Work</div>
-      </div>
     </div>
   </div>
 </section>
@@ -938,7 +918,6 @@ footer p {
         </div>
         <div class="service-body">
           <p>Transform your garage into a showroom-quality space. Chemical resistant, easy to clean, and built to handle vehicle traffic for decades.</p>
-          <a href="#contact" class="service-link">Get a Quote →</a>
         </div>
       </div>
 
@@ -951,7 +930,6 @@ footer p {
         </div>
         <div class="service-body">
           <p>Warehouses, showrooms, retail spaces. High-traffic epoxy systems engineered to stand up to forklifts, heavy machinery, and constant foot traffic.</p>
-          <a href="#contact" class="service-link">Get a Quote →</a>
         </div>
       </div>
 
@@ -964,7 +942,6 @@ footer p {
         </div>
         <div class="service-body">
           <p>Stunning three-dimensional metallic finishes. No two floors are ever the same — a truly custom result for high-end residential and commercial spaces.</p>
-          <a href="#contact" class="service-link">Get a Quote →</a>
         </div>
       </div>
 
@@ -977,7 +954,6 @@ footer p {
         </div>
         <div class="service-body">
           <p>Our most popular residential system. Vinyl flake broadcast over a base coat provides excellent slip resistance and hides surface imperfections beautifully.</p>
-          <a href="#contact" class="service-link">Get a Quote →</a>
         </div>
       </div>
 
@@ -990,7 +966,6 @@ footer p {
         </div>
         <div class="service-body">
           <p>Moisture-tolerant epoxy systems designed specifically for below-grade concrete. Moisture barriers and diamond grinding prep included in every job.</p>
-          <a href="#contact" class="service-link">Get a Quote →</a>
         </div>
       </div>
 
@@ -1003,7 +978,6 @@ footer p {
         </div>
         <div class="service-body">
           <p>USDA-compliant, chemical resistant polyurea and polyaspartic systems for food service, manufacturing, and pharmaceutical environments.</p>
-          <a href="#contact" class="service-link">Get a Quote →</a>
         </div>
       </div>
     </div>
@@ -1030,7 +1004,7 @@ footer p {
           <li>UV-stable topcoat sealer</li>
           <li>5-year workmanship warranty</li>
         </ul>
-        <button class="btn-pricing" onclick="scrollToContact()">Get This Quote</button>
+        <button class="btn-pricing">Get This Quote</button>
       </div>
 
       <div class="pricing-card featured reveal reveal-d1">
@@ -1046,7 +1020,7 @@ footer p {
           <li>Anti-slip aggregate option</li>
           <li>10-year workmanship warranty</li>
         </ul>
-        <button class="btn-pricing" onclick="scrollToContact()">Get This Quote</button>
+        <button class="btn-pricing">Get This Quote</button>
       </div>
 
       <div class="pricing-card reveal reveal-d2">
@@ -1061,101 +1035,8 @@ footer p {
           <li>Colour matching available</li>
           <li>15-year workmanship warranty</li>
         </ul>
-        <button class="btn-pricing" onclick="scrollToContact()">Request On-Site Quote</button>
+        <button class="btn-pricing">Request On-Site Quote</button>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="section-eyebrow"><span>Free Estimate</span></div>
-        <h2>Get Your<br><span class="accent">Free Quote.</span></h2>
-        <p>Fill out the form and we'll get back to you within one business day with a no-obligation quote for your project.</p>
-
-        <div class="contact-badges">
-          <div class="contact-badge">
-            <div class="badge-icon">📞</div>
-            <div class="badge-text">
-              <strong>Call Us Direct</strong>
-              <span>(555) 000-0000</span>
-            </div>
-          </div>
-          <div class="contact-badge">
-            <div class="badge-icon">📍</div>
-            <div class="badge-text">
-              <strong>Service Area</strong>
-              <span>Metro area + 60km radius</span>
-            </div>
-          </div>
-          <div class="contact-badge">
-            <div class="badge-icon">⚡</div>
-            <div class="badge-text">
-              <strong>Fast Turnaround</strong>
-              <span>Most installs complete in 1–2 days</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <form class="contact-form reveal reveal-d1" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="Mike">
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Johnson">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="(555) 000-0000">
-          </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="mike@email.com">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Project Type</label>
-            <select>
-              <option value="" disabled selected>Select type</option>
-              <option>Residential Garage</option>
-              <option>Basement</option>
-              <option>Commercial / Warehouse</option>
-              <option>Metallic / Decorative</option>
-              <option>Industrial</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Approx. Square Footage</label>
-            <select>
-              <option value="" disabled selected>Select size</option>
-              <option>Under 500 sq ft</option>
-              <option>500 – 1,000 sq ft</option>
-              <option>1,000 – 2,500 sq ft</option>
-              <option>2,500 – 5,000 sq ft</option>
-              <option>Over 5,000 sq ft</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Tell Us About Your Project</label>
-          <textarea placeholder="What's the current floor condition? Any cracks, oil stains, moisture issues? What's the timeline?"></textarea>
-        </div>
-        <p class="form-disclaimer">We respect your privacy. Your info is never sold or shared. We'll only use it to follow up on your quote request.</p>
-        <button type="submit" class="btn-submit" id="submit-btn">
-          Request My Free Quote <span class="arrow">→</span>
-        </button>
-      </form>
     </div>
   </div>
 </section>
@@ -1169,7 +1050,6 @@ footer p {
   <div class="footer-links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
-    <a href="#contact">Contact</a>
   </div>
 </footer>
 
@@ -1189,18 +1069,6 @@ footer p {
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
-
-  function scrollToContact() {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submit-btn');
-    btn.innerHTML = 'Quote Request Sent ✓';
-    btn.style.background = '#2a7a4a';
-    btn.disabled = true;
-  }
 </script>
 </body>
 </html>
