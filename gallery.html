@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signature Coatings | Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0b0b0b;
+  --dark: #141414;
+  --concrete: #1e1e1e;
+  --mid: #2c2c2c;
+  --steel: #4a4a4a;
+  --muted: #8a8a8a;
+  --light: #c8c8c0;
+  --white: #f0ede8;
+  --orange: #f04e0a;
+  --orange-dim: rgba(240,78,10,0.12);
+  --orange-glow: rgba(240,78,10,0.06);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+}
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  transition: background 0.3s, border-bottom 0.3s;
+}
+nav.scrolled {
+  background: rgba(11,11,11,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--mid);
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.nav-logo-icon {
+  display: inline-block;
+  width: 8px;
+  height: 22px;
+  background: var(--orange);
+  margin-right: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: var(--orange);
+  color: var(--black);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.nav-cta:hover { opacity: 0.85; }
+#hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 3rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 120% 80% at 70% 40%, #1a1008 0%, var(--black) 65%);
+  z-index: 0;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 60% at 60% 30%, rgba(240,78,10,0.1) 0%, transparent 60%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--orange-dim);
+  border: 1px solid rgba(240,78,10,0.3);
+  padding: 0.4rem 1rem;
+  margin-bottom: 2rem;
+}
+.hero-tag span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(4rem, 10vw, 7rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  max-width: 900px;
+}
+h1 .accent { color: var(--orange); }
+h1 .outline,
+h2 .outline {
+  -webkit-text-stroke: 1.5px var(--white);
+  color: transparent;
+}
+.hero-sub {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.75;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+.btn-main,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  text-decoration: none;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: opacity 0.2s, border-color 0.2s, background 0.2s;
+}
+.btn-main { background: var(--orange); color: var(--black); }
+.btn-main:hover { opacity: 0.85; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--steel);
+  color: var(--white);
+  font-weight: 700;
+}
+.btn-outline:hover { border-color: var(--white); }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 18px;
+  background: var(--orange);
+}
+.section-eyebrow span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  color: var(--white);
+}
+.gallery-section {
+  padding: 7rem 0;
+  background: #101010;
+  border-top: 1px solid var(--mid);
+}
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+.gallery-header p {
+  color: var(--muted);
+  max-width: 440px;
+  line-height: 1.8;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.gallery-card {
+  background: var(--concrete);
+  border: 1px solid var(--mid);
+  overflow: hidden;
+  border-radius: 18px;
+}
+.gallery-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.gallery-card-body {
+  padding: 1.2rem 1.3rem 1.5rem;
+}
+.gallery-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.gallery-card-text {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.gallery-link { margin-top: 1rem; }
+footer {
+  background: var(--black);
+  border-top: 1px solid var(--mid);
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.footer-logo-icon {
+  display: inline-block;
+  width: 5px;
+  height: 15px;
+  background: var(--orange);
+  opacity: 0.6;
+}
+footer p {
+  font-size: 0.75rem;
+  color: var(--steel);
+  letter-spacing: 0.04em;
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a {
+  font-size: 0.72rem;
+  color: var(--steel);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--muted); }
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+@media (max-width: 960px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero-content { padding: 8rem 1.5rem 3rem; }
+  .container { padding: 0 1.5rem; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-header { flex-direction: column; align-items: flex-start; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-icon"></span>Signature Coatings
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#pricing" class="nav-cta">Home</a>
+</nav>
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      <span>Winnipeg Flooring Experts</span>
+    </div>
+    <h1>Signature Coatings<br><span class="accent">Gallery</span><br><span class="outline">Showcase.</span></h1>
+    <p class="hero-sub">Browse our best epoxy floor installations across residential and commercial projects in Winnipeg. Every image is accompanied by clear details and finished results.</p>
+    <div class="hero-actions">
+      <a href="index.html" class="btn-main">Return Home <span class="arrow">→</span></a>
+      <a href="#project-gallery" class="btn-outline">View Gallery</a>
+    </div>
+  </div>
+</section>
+<section id="project-gallery" class="gallery-section">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <div>
+        <div class="section-eyebrow"><span>Featured Work</span></div>
+        <h2>Epoxy Floors<br><span class="outline">Built to Last.</span></h2>
+        <p>High-quality epoxy installations for garages, basements, commercial spaces, and decorative metallic floors. Each project is completed to perform in Winnipeg’s climate.</p>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <article class="gallery-card reveal">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23f0ede8' font-family='Arial' font-size='26' dominant-baseline='middle' text-anchor='middle'%3EGarage Epoxy 1%3C/text%3E%3C/svg%3E" alt="Completed garage epoxy floor with dark metallic finish">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Garage Epoxy</div>
+          <p class="gallery-card-text">A garage floor upgraded with a durable metallic epoxy finish built to resist moisture and wear.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal reveal-d1">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23f0ede8' font-family='Arial' font-size='26' dominant-baseline='middle' text-anchor='middle'%3ECommercial Epoxy 2%3C/text%3E%3C/svg%3E" alt="Commercial epoxy flooring installation with textured finish">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Commercial Flooring</div>
+          <p class="gallery-card-text">An industrial-grade epoxy floor designed for heavy traffic, forklifts, and warehouse use.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal reveal-d2">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23f0ede8' font-family='Arial' font-size='26' dominant-baseline='middle' text-anchor='middle'%3EMetallic Epoxy 3%3C/text%3E%3C/svg%3E" alt="Decorative metallic epoxy floor with custom colour blend">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Metallic Finish</div>
+          <p class="gallery-card-text">A decorative metallic floor installation with custom pigment and high-gloss topcoat.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23f0ede8' font-family='Arial' font-size='26' dominant-baseline='middle' text-anchor='middle'%3EBasement Epoxy 4%3C/text%3E%3C/svg%3E" alt="Basement epoxy floor finish with moisture-resistant coating">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Basement Coating</div>
+          <p class="gallery-card-text">A moisture-resistant basement floor system with a modern grey epoxy finish.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal reveal-d1">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23f0ede8' font-family='Arial' font-size='26' dominant-baseline='middle' text-anchor='middle'%3EFlake System 5%3C/text%3E%3C/svg%3E" alt="Full broadcast flake epoxy floor with speckled finish">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Flake System</div>
+          <p class="gallery-card-text">A popular broadcast flake system that hides imperfections and provides slip resistance.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal reveal-d2">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23f0ede8' font-family='Arial' font-size='26' dominant-baseline='middle' text-anchor='middle'%3EIndustrial Floor 6%3C/text%3E%3C/svg%3E" alt="Industrial epoxy floor built for chemical and machine resistance">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Industrial Floor</div>
+          <p class="gallery-card-text">A commercial epoxy floor engineered for durability in industrial environments.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-logo">
+    <span class="footer-logo-icon"></span>Signature Coatings
+  </div>
+  <p>© 2025 Signature Coatings. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html#contact">Contact</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+</footer>
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

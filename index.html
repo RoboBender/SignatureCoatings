@@ -642,6 +642,61 @@ h2 .outline {
 }
 .pricing-card.featured .btn-pricing:hover { opacity: 0.85; }
 
+.gallery-section {
+  padding: 7rem 0;
+  background: #101010;
+  border-top: 1px solid var(--mid);
+}
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+.gallery-header p {
+  color: var(--muted);
+  max-width: 440px;
+  line-height: 1.8;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.gallery-card {
+  background: var(--concrete);
+  border: 1px solid var(--mid);
+  overflow: hidden;
+  border-radius: 18px;
+}
+.gallery-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.gallery-card-body {
+  padding: 1.2rem 1.3rem 1.5rem;
+}
+.gallery-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.gallery-card-text {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.gallery-link {
+  margin-top: 2rem;
+}
+
 /* CONTACT */
 #contact {
   padding: 7rem 0;
@@ -896,6 +951,7 @@ footer p {
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#pricing" class="nav-cta">View Pricing →</a>
@@ -913,7 +969,7 @@ footer p {
     <h1>
       Durable Floors,<br><span class="accent">Lasting</span><br><span class="outline">Impressions.</span>
     </h1>
-    <p class="hero-sub">Premium epoxy floor coatings for homes and businesses across Ontario. Beautiful, tough, and built to last a lifetime.</p>
+    <p class="hero-sub">Premium epoxy floor coatings for homes and businesses in Winnipeg and the surrounding area. Beautiful, tough, and built to last a lifetime.</p>
     <div class="hero-actions">
       <a href="#pricing" class="btn-main">View Pricing <span class="arrow">→</span></a>
       <a href="#services" class="btn-outline">Our Work</a>
@@ -1004,6 +1060,45 @@ footer p {
           <p>USDA-compliant, chemical resistant polyurea and polyaspartic systems for food service, manufacturing, and pharmaceutical environments.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <div>
+        <div class="section-eyebrow"><span>Our Work</span></div>
+        <h2>Finished Floors<br><span class="outline">You Can See.</span></h2>
+      </div>
+      <div class="gallery-link">
+        <a href="gallery.html" class="btn-main">View Full Gallery</a>
+      </div>
+    </div>
+
+    <div class="gallery-grid">
+      <article class="gallery-card reveal">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23f0ede8' font-family='Arial' font-size='30' dominant-baseline='middle' text-anchor='middle'%3EGarage Floor 1%3C/text%3E%3C/svg%3E" alt="Epoxy garage floor finished in dark metallic tones">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Garage Makeover</div>
+          <p class="gallery-card-text">A durable two-tone epoxy finish designed for vehicle traffic and easy maintenance.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal reveal-d1">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23f0ede8' font-family='Arial' font-size='30' dominant-baseline='middle' text-anchor='middle'%3ECommercial Floor%3C/text%3E%3C/svg%3E" alt="Commercial epoxy floor with high-traffic durability">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Commercial Install</div>
+          <p class="gallery-card-text">High-traffic commercial flooring built for strength, slip resistance, and long-term wear.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal reveal-d2">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' fill='%23f0ede8' font-family='Arial' font-size='30' dominant-baseline='middle' text-anchor='middle'%3EMetallic Floor%3C/text%3E%3C/svg%3E" alt="Decorative metallic epoxy floor finish">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Metallic Finish</div>
+          <p class="gallery-card-text">A custom metallic epoxy result with depth, shine, and premium visual impact.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1104,7 +1199,7 @@ footer p {
   <div class="footer-logo">
     <span class="footer-logo-icon"></span>Signature Coatings
   </div>
-  <p>© 2025 Signature Coatings Coatings. All rights reserved.</p>
+  <p>© 2025 Signature Coatings. All rights reserved.</p>
   <div class="footer-links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
